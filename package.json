@@ -1,0 +1,22 @@
+{
+  "author": "AnatolyI <ai@rsl.ru>",
+  "name": "tiff-multipage",
+  "description": "Can create one multipage tiff from multiple tiffs",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blackbeam/node-libtiff.git"
+  },
+  "scripts": {
+    "preinstall": "node-waf -v configure build"
+  },
+  "main": "./lib/tiff-multipage.js",
+  "dependencies": {},
+  "devDependencies": {
+    "nodeunit": "*"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

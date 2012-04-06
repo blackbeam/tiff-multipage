@@ -12,7 +12,7 @@ def configure(conf):
 
 def build(bld):
   obj = bld.new_task_gen('cxx', 'shlib', 'node_addon')
-  obj.target = 'libtiff'
-  obj.source = 'libtiff.cc'
+  obj.target = 'tiff-multipage'
+  obj.source = './src/libtiff.cc'
   obj.lib = 'tiff'
   #obj.uselib = ['GDK-PIXBUF-2.0']
