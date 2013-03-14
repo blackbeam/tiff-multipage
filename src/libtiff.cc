@@ -203,3 +203,5 @@ init (v8::Handle<v8::Object> target)
 
     TIFFFile::Initialize(target);
 }
+
+NODE_MODULE(tiff_multipage, init);

@@ -8,13 +8,12 @@
     "url": "git://github.com/blackbeam/node-libtiff.git"
   },
   "scripts": {
-    "preinstall": "node-waf -v configure build"
+    "install": "(node-gyp rebuild) || (exit 0)",
+    "preinstall": "(node-gyp configure) || (exit 0)",
+    "clean": "(node-gyp clean) || (exit 0)"
   },
   "main": "./lib/tiff-multipage.js",
   "dependencies": {},
-  "devDependencies": {
-    "nodeunit": "*"
-  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
