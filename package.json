@@ -2,7 +2,7 @@
   "author": "AnatolyI <ai@rsl.ru>",
   "name": "tiff-multipage",
   "description": "Can create one multipage tiff from multiple tiffs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/blackbeam/node-libtiff.git"
