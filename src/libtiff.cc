@@ -43,28 +43,22 @@ namespace node {
     HandleScope scope;
     TIFFFile *tifffile;
 
-    /* Validate input parameters */
     if (args.Length() == 2 && args[0]->IsString() && args[1]->IsString()) {
       String::Utf8Value filename(args[0]);
       String::Utf8Value mode(args[1]);
 
-      /* Open tiff file */
       TIFF* tif = TIFFOpen(*filename, *mode);
-      /* Check for success */
       if (tif != NULL) {
-        /* Create TIFFFile object */
         tifffile = new TIFFFile(tif, *filename, (strcmp(*mode, "r") != 0));
       } else {
-        /* Throw an error */
         return ThrowException(Exception::TypeError(String::New("Can't open tiff file.")));
       }
     } else {
-      /* Throw an error */
       return ThrowException(Exception::TypeError(String::New("Invalid params (String filename, String mode)")));
     }
-    /* Wrap object */
+    
     tifffile->Wrap(args.This());
-    /* Return new TIFFFile */
+
     return args.This();
   }
 
