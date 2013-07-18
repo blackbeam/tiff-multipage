@@ -1,11 +1,11 @@
 {
   "author": "AnatolyI <ai@rsl.ru>",
   "name": "tiff-multipage",
-  "description": "Can create one multipage tiff from multiple tiffs",
-  "version": "0.0.2",
+  "description": "Simple synchronous node.js module which utilize libtiff to make one multipage tiff from set of one-paged tiffs.",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
-    "url": "git://github.com/blackbeam/node-libtiff.git"
+    "url": "git://github.com/blackbeam/tiff-multipage.git"
   },
   "scripts": {
     "install": "(node-gyp rebuild) || (exit 0)",
