@@ -6,7 +6,7 @@
                 "src/libtiff.cc"
             ],
             "libraries": [
-                "-Ltiff"
+                "-ltiff"
             ]
         }
     ]
