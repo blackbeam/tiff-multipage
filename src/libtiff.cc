@@ -56,7 +56,7 @@ namespace node {
     } else {
       return ThrowException(Exception::TypeError(String::New("Invalid params (String filename, String mode)")));
     }
-    
+
     tifffile->Wrap(args.This());
 
     return args.This();
@@ -115,7 +115,7 @@ namespace node {
       return ThrowException(Exception::TypeError(String::New("Destination tiff must be opened for writing.")));
     }
 
-    if (args.Length() != 1 || !TIFFFile::HasInstance(args[0])) {
+    if (args.Length() < 1 || !TIFFFile::HasInstance(args[0])) {
       return ThrowException(Exception::TypeError(String::New("Invalid params (TIFFFile source)")));
     }
     TIFFFile *src = ObjectWrap::Unwrap<TIFFFile>(args[0]->ToObject());
