@@ -78,52 +78,38 @@ namespace node {
           uint32 imageWidth;
           TIFFGetField(self->tif, TIFFTAG_IMAGEWIDTH, &imageWidth);
           return scope.Close(Uint32::New(imageWidth));
-        }
-
-        if (strcmp(*propName, "IMAGELENGTH") == 0) {
+        } else if (strcmp(*propName, "IMAGELENGTH") == 0) {
           uint32 imageLength;
           TIFFGetField(self->tif, TIFFTAG_IMAGELENGTH, &imageLength);
           return scope.Close(Uint32::New(imageLength));
-        }
-
-        if (strcmp(*propName, "BITSPERSAMPLE") == 0) {
+        } else if (strcmp(*propName, "BITSPERSAMPLE") == 0) {
           uint16 bps;
           TIFFGetField(self->tif, TIFFTAG_BITSPERSAMPLE, &bps);
           return scope.Close(Uint32::New(bps));
-        }
-
-        if (strcmp(*propName, "SAMPLESPERPIXEL") == 0) {
+        } else if (strcmp(*propName, "SAMPLESPERPIXEL") == 0) {
           uint16 spp;
           TIFFGetField(self->tif, TIFFTAG_SAMPLESPERPIXEL, &spp);
           return scope.Close(Uint32::New(spp));
-        }
-
-        if (strcmp(*propName, "PLANARCONFIG") == 0) {
+        } else if (strcmp(*propName, "PLANARCONFIG") == 0) {
           uint16 pc;
           TIFFGetField(self->tif, TIFFTAG_PLANARCONFIG, &pc);
           return scope.Close(Uint32::New(pc));
-        }
-
-        if (strcmp(*propName, "PHOTOMETRIC") == 0) {
+        } else if (strcmp(*propName, "PHOTOMETRIC") == 0) {
           uint16 pm;
           TIFFGetField(self->tif, TIFFTAG_PHOTOMETRIC, &pm);
           return scope.Close(Uint32::New(pm));
-        }
-
-        if (strcmp(*propName, "ORIENTATION") == 0) {
+        } else if (strcmp(*propName, "ORIENTATION") == 0) {
           uint16 o9n;
           TIFFGetFieldDefaulted(self->tif, TIFFTAG_ORIENTATION, &o9n);
           return scope.Close(Uint32::New(o9n));
-        }
-
-        if (strcmp(*propName, "scanlineSize") == 0) {
+        } else if (strcmp(*propName, "scanlineSize") == 0) {
           int32 ss;
           ss = TIFFScanlineSize(self->tif);
           return scope.Close(Int32::New(ss));
-        }
-
-        if (strcmp(*propName, "filename") == 0) {
+        } else if (strcmp(*propName, "filename") == 0) {
           return scope.Close(String::New(self->filename));
+        } else {
+          return scope.Close(Undefined());
         }
   }
 
