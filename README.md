@@ -1,5 +1,5 @@
 ## tiff-multipage
-Simple synchronous node.js module which utilize libtiff to make one multipage tiff from set of one-paged tiffs.
+Tool to merge multiple TIFF files into one.
 
 ### Requirements:
 1. libtiff (tested on v4).
@@ -11,14 +11,23 @@ npm install tiff-multipage
 
 ### Usage example:
 ```javascript
-var tmp = require('tiff-multipage');
-var pages = [];
-var out = new tmp('/path/to/output.tiff', 'w');
+let mp = require('tiff-multipage');
 
-pages.push(new tmp('/path/to/first.tiff', 'r'));
-pages.push(new tmp('/path/to/second.tiff', 'r'));
-pages.push(new tmp('/path/to/third.tiff', 'r'));
-pages.push(new tmp('/path/to/nth.tiff', 'r'));
+const OUTPUT_PATH = './output/OUT.TIFF';
 
-pages.forEach(out.pushAsPage.bind(out));
+let input_paths = ['./input/INPUT1.TIFF',
+                   './input/INPUT2.TIFF',
+                   './input/INPUT3.TIFF'];
+
+// Async version
+mp.joinAsync(OUTPUT_FILE_NAME, input_paths, function (err) {
+    if (err) console.log(err);
+});
+
+// Sync version
+try {
+    mp.joinSync(OUTPUT_FILE_NAME, input_paths);
+} catch (err) {
+    console.log(err);
+}
 ```
