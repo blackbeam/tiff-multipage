@@ -1,6 +1,7 @@
 {
   "author": "AnatolyI <ai@rsl.ru>",
   "name": "tiff-multipage",
+  "license": "MIT",
   "description": "Tool to merge multiple TIFF files into one",
   "version": "0.1.0",
   "repository": {
