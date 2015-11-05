@@ -8,9 +8,13 @@
                 "src/async.cc",
                 "src/tiff_multipage.cc"
             ],
-            "include_dirs": ["<!(node -e \"require('nan')\")"],
+            "include_dirs": [
+                "<!(node -e \"require('nan')\")",
+                "<!@(pkg-config libtiff-4 --cflags-only-I | sed s/-I//g)"
+            ],
             "libraries": [
-                "-ltiff"
+                "-ltiff",
+                "<!@(pkg-config --libs libtiff-4)"
             ]
         }
     ]
