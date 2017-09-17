@@ -23,7 +23,7 @@
                     "configurations": {
                         'Release': { 'msvc_settings': { 'VCCLCompilerTool': { 'RuntimeLibrary': '2' } } }
                     },
-                    "msvs_settings": { 'VCLinkerTool': { "AdditionalLibraryDirectories": [".", '../..', "<(module_root_dir)", '../../deps/libtiff'] } }
+                    "msvs_settings": { 'VCLinkerTool': { "AdditionalLibraryDirectories": [".", '<(module_root_dir)/../..', "<(module_root_dir)", '<(module_root_dir)/../../deps/libtiff'] } }
                 }],
                 ['OS!="win"', {
                     'libraries': ["-ltiff", "<!@(pkg-config --libs libtiff-4)"],
