@@ -18,7 +18,7 @@
                     "libraries": [
                         'msvcrt.lib',
                         'libcmt.lib',
-                        "-l<(module_root_dir)/libtiff.lib",
+                        "libtiff.lib",
                     ],
                     "configurations": {
                         'Release': { 'msvc_settings': { 'VCCLCompilerTool': { 'RuntimeLibrary': '2' } } }
