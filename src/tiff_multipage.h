@@ -22,6 +22,7 @@
 #define TIFF_MULTIPAGE_H
 
 #include <string>
+#include <stdint.h>
 #include <vector>
 #include "tiffio.h"
 

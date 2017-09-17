@@ -10,11 +10,23 @@
             ],
             "include_dirs": [
                 "<!(node -e \"require('nan')\")",
-                "<!@(pkg-config libtiff-4 --cflags-only-I | sed s/-I//g)"
+                "."
             ],
-            "libraries": [
-                "-ltiff",
-                "<!@(pkg-config --libs libtiff-4)"
+            "conditions": [
+                ['OS=="win"', {
+                    "libraries": [
+                        'msvcrt.lib',
+                        "-l<(module_root_dir)/libtiff.lib",
+                    ],
+                    "configurations": {
+                        'Release': { 'msvc_settings': { 'VCCLCompilerTool': { 'RuntimeLibrary': '2' } } }
+                    },
+                    "msvs_settings": { 'VCLinkerTool': { "AdditionalLibraryDirectories": [".", "<(module_root_dir)"] } }
+                }],
+                ['OS!="win"', {
+                    'libraries': ["-ltiff", "<!@(pkg-config --libs libtiff-4)"],
+                    'include_dirs': ["<!@(pkg-config libtiff-4 --cflags-only-I | sed s/-I//g)"]
+                }],
             ]
         }
     ]
