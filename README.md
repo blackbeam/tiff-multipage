@@ -13,21 +13,21 @@ npm install tiff-multipage
 ```javascript
 let mp = require('tiff-multipage');
 
-const OUTPUT_PATH = './output/OUT.TIFF';
+let output_path = './output/OUT.TIFF';
 
 let input_paths = ['./input/INPUT1.TIFF',
                    './input/INPUT2.TIFF',
                    './input/INPUT3.TIFF'];
 
 // Async version
-mp.joinAsync(OUTPUT_FILE_NAME, input_paths, function (err) {
+mp.JoinAsync(output_path, input_paths, function (err) {
     if (err) console.log(err);
 });
 
 // Sync version
 try {
-    mp.joinSync(OUTPUT_FILE_NAME, input_paths);
+    mp.joinSync(output_path, input_paths);
 } catch (err) {
-    console.log(err);
+    console.error(err);
 }
 ```
