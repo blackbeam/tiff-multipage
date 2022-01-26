@@ -22,19 +22,13 @@
 #include "async.h"
 #include "sync.h"
 
-using v8::FunctionTemplate;
-using v8::Handle;
-using v8::Object;
-using v8::String;
 using Nan::GetFunction;
 using Nan::New;
 using Nan::Set;
 
 NAN_MODULE_INIT(InitAll) {
-    Set(target, New<String>("joinAsync").ToLocalChecked(),
-        GetFunction(New<FunctionTemplate>(JoinAsync)).ToLocalChecked());
-    Set(target, New<String>("joinSync").ToLocalChecked(),
-        GetFunction(New<FunctionTemplate>(JoinSync)).ToLocalChecked());
+    NAN_EXPORT(target, JoinAsync);
+    NAN_EXPORT(target, JoinSync);
 }
 
 NODE_MODULE(tiff_multipage, InitAll)

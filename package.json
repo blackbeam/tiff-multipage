@@ -11,6 +11,6 @@
   "main": "./lib/tiff-multipage.js",
   "gypfile": true,
   "dependencies": {
-    "nan": "^2.3.2"
+    "nan": "^2"
   }
 }
